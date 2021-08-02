@@ -38,45 +38,97 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(primarySwatch: Colors.blue),
+      home: Scaffold(
+        body: Column(
           children: <Widget>[
-            Text('Default'),
-            // 太さを指定
-            Text('Bold', style: TextStyle(fontWeight: FontWeight.bold)),
-            // スタイルを指定
-            Text('Italic', style: TextStyle(fontStyle: FontStyle.italic)),
-            // サイズを指定
-            Text('fontSize = 36', style: TextStyle(fontSize: 36)),
-            // 色を指定
-            Text('Red', style: TextStyle(color: Colors.red,fontSize: 36)),
             Container(
               width: double.infinity,
-              color: Colors.grey,
-              // 表示位置を指定
-              child: Text('TextAlign.center', textAlign: TextAlign.center),
+              height: 100,
+              color: Colors.grey[200],
+              child: Row(
+                // 横に並べる
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Container(color: Colors.red, child: Text('first')),
+                  Container(color: Colors.blue, child: Text('second')),
+                  Container(color: Colors.green, child: Text('third')),
+                ],
+              ),
             ),
-            Text(
-              'You have pushed the button this many times:',
+            Container(
+              width: double.infinity,
+              height: 60,
+              child: Row(
+                // 中央寄せ
+
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Container(color: Colors.red, child: Text('***')),
+                  Container(color: Colors.blue, child: Text('中央寄せ')),
+                  Container(color: Colors.green, child: Text('---')),
+                ],
+              ),
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+            Container(
+              width: double.infinity,
+              height: 60,
+              color: Colors.grey[200],
+              child: Row(
+                // 右寄せ
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  Container(color: Colors.red, child: Text('***')),
+                  Container(color: Colors.blue, child: Text('右寄せ')),
+                  Container(color: Colors.green, child: Text('---')),
+                ],
+              ),
+            ),
+            Container(
+              width: double.infinity,
+              height: 60,
+              child: Row(
+                // 均等配置
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  Container(color: Colors.red, child: Text('***')),
+                  Container(color: Colors.blue, child: Text('均等配置')),
+                  Container(color: Colors.green, child: Text('---')),
+                ],
+              ),
+            ),
+            Container(
+              width: double.infinity,
+              height: 60,
+              color: Colors.grey[200],
+              child: Row(
+                // 上寄せ
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Container(color: Colors.red, child: Text('***')),
+                  Container(color: Colors.blue, child: Text('上寄せ')),
+                  Container(color: Colors.green, child: Text('---')),
+                ],
+              ),
+            ),
+            Container(
+              width: double.infinity,
+              height: 60,
+              child: Row(
+                // 下寄せ
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: <Widget>[
+                  Container(color: Colors.red, child: Text('***')),
+                  Container(color: Colors.blue, child: Text('下寄せ')),
+                  Container(color: Colors.green, child: Text('---')),
+                ],
+              ),
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
