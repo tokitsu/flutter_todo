@@ -44,86 +44,28 @@ class _MyHomePageState extends State<MyHomePage> {
       home: Scaffold(
         body: Column(
           children: <Widget>[
-            Container(
-              width: double.infinity,
-              height: 100,
-              color: Colors.grey[200],
-              child: Row(
-                // 横に並べる
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  Container(color: Colors.red, child: Text('first')),
-                  Container(color: Colors.blue, child: Text('second')),
-                  Container(color: Colors.green, child: Text('third')),
-                ],
+            // タイトル・サブタイトル・画像・アイコン等を含めたアイテムが作れる
+            ListTile(
+              leading: Image.network('https://placehold.jp/50x50.png'),
+              title: Text('ListTile'),
+              subtitle: Text('subtitle'),
+              trailing: Icon(Icons.more_vert),
+            ),
+            // 影のついたカードUIが作れる
+            Card(
+              child: Container(
+                height: 200,
+                width: double.infinity,
+                child: Text('Card'),
               ),
             ),
-            Container(
-              width: double.infinity,
-              height: 60,
-              child: Row(
-                // 中央寄せ
-
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Container(color: Colors.red, child: Text('***')),
-                  Container(color: Colors.blue, child: Text('中央寄せ')),
-                  Container(color: Colors.green, child: Text('---')),
-                ],
-              ),
-            ),
-            Container(
-              width: double.infinity,
-              height: 60,
-              color: Colors.grey[200],
-              child: Row(
-                // 右寄せ
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: <Widget>[
-                  Container(color: Colors.red, child: Text('***')),
-                  Container(color: Colors.blue, child: Text('右寄せ')),
-                  Container(color: Colors.green, child: Text('---')),
-                ],
-              ),
-            ),
-            Container(
-              width: double.infinity,
-              height: 60,
-              child: Row(
-                // 均等配置
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  Container(color: Colors.red, child: Text('***')),
-                  Container(color: Colors.blue, child: Text('均等配置')),
-                  Container(color: Colors.green, child: Text('---')),
-                ],
-              ),
-            ),
-            Container(
-              width: double.infinity,
-              height: 60,
-              color: Colors.grey[200],
-              child: Row(
-                // 上寄せ
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Container(color: Colors.red, child: Text('***')),
-                  Container(color: Colors.blue, child: Text('上寄せ')),
-                  Container(color: Colors.green, child: Text('---')),
-                ],
-              ),
-            ),
-            Container(
-              width: double.infinity,
-              height: 60,
-              child: Row(
-                // 下寄せ
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: <Widget>[
-                  Container(color: Colors.red, child: Text('***')),
-                  Container(color: Colors.blue, child: Text('下寄せ')),
-                  Container(color: Colors.green, child: Text('---')),
-                ],
+            // 組み合わせることもOK
+            Card(
+              child: ListTile(
+                leading: Image.network('https://placehold.jp/50x50.png'),
+                title: Text('Card and ListTile'),
+                subtitle: Text('subtitle'),
+                trailing: Icon(Icons.more_vert),
               ),
             ),
           ],
