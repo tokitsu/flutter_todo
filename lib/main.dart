@@ -29,7 +29,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
-
+  int count = 0;
   void _incrementCounter() {
     setState(() {
       _counter++;
@@ -38,39 +38,20 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(primarySwatch: Colors.blue),
-      home: Scaffold(
-        body: Column(
-          children: <Widget>[
-            // タイトル・サブタイトル・画像・アイコン等を含めたアイテムが作れる
-            ListTile(
-              leading: Image.network('https://placehold.jp/50x50.png'),
-              title: Text('ListTile'),
-              subtitle: Text('subtitle'),
-              trailing: Icon(Icons.more_vert),
-            ),
-            // 影のついたカードUIが作れる
-            Card(
-              child: Container(
-                height: 200,
-                width: double.infinity,
-                child: Text('Card'),
-              ),
-            ),
-            // 組み合わせることもOK
-            Card(
-              child: ListTile(
-                leading: Image.network('https://placehold.jp/50x50.png'),
-                title: Text('Card and ListTile'),
-                subtitle: Text('subtitle'),
-                trailing: Icon(Icons.more_vert),
-              ),
-            ),
-          ],
+    return Column(
+      children: <Widget>[
+        Text(count.toString()),
+        ElevatedButton(
+          onPressed: () {
+            // データを更新する時は setState を呼ぶ
+            setState(() {
+              // データを更新
+              count = count + 1;
+            });
+          },
+          child: Text('カウントアップ'),
         ),
-      ),
+      ],
     );
   }
 }
